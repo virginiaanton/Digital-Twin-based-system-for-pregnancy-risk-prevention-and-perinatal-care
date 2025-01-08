@@ -1,0 +1,44 @@
+{
+    "columns": {
+        "user_id": {
+            "sdtype": "id",
+            "regex_format": "^user_\\d{4}$"
+        },
+        "Age": {
+            "sdtype": "numerical",
+            "computer_representation": "Int64"
+        },
+        "timestamp": {
+            "sdtype": "datetime",
+            "datetime_format": "%d/%m/%Y %H:%M:%S"
+        },
+        "DiastolicBP": {
+            "sdtype": "numerical",
+            "computer_representation": "Int64"
+        },
+        "SystolicBP": {
+            "sdtype": "numerical",
+            "computer_representation": "Int64"
+         },
+        "BS": {
+            "sdtype": "numerical",
+            "computer_representation": "Float"
+        },
+        "BodyTemp": {
+            "sdtype": "numerical",
+            "computer_representation": "Float"
+        },
+        "HeartRate": {
+            "sdtype": "numerical",
+            "computer_representation": "Int64"
+        }
+    },
+    "sequence_key": "user_id",
+    "constraints": [
+        {
+            "constraint_type": "inequality",
+            "columns": ["DiastolicBloodPressure", "SystolicBloodPressure"],
+            "operator": "<"
+        }
+    ]
+}
